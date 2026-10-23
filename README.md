@@ -44,7 +44,7 @@
 
 ---
 
-## 📌 Mes Projets & Contact
+## 📌 Mes Projets
 
 [![Consulter mes projets sur GitHub](https://img.shields.io/badge/Consulter_mes_projets_sur_GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Coco921609?tab=repositories)
 
