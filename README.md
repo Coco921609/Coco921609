@@ -28,12 +28,12 @@
 <!-- LANGUAGE_STATS:START -->
 | Langage | Part Moyenne (%) | Progression Visuelle |
 | :--- | :---: | :--- |
-| 🩵 **Dart** | **89.09%** | ![Dart](https://geps.dev/progress/89) |
-| 🟠 **HTML** | **4.57%** | ![HTML](https://geps.dev/progress/5) |
-| 🩷 **C++** | **3.27%** | ![C++](https://geps.dev/progress/3) |
-| 🔴 **CMake** | **2.56%** | ![CMake](https://geps.dev/progress/3) |
-| 🧡 **Swift** | **0.30%** | ![Swift](https://geps.dev/progress/1) |
-| 🔘 **C** | **0.19%** | ![C](https://geps.dev/progress/1) |
+| 🩵 **Dart** | **90.29%** | ![Dart](https://geps.dev/progress/90) |
+| 🟠 **HTML** | **4.53%** | ![HTML](https://geps.dev/progress/5) |
+| 🩷 **C++** | **2.67%** | ![C++](https://geps.dev/progress/3) |
+| 🔴 **CMake** | **2.09%** | ![CMake](https://geps.dev/progress/2) |
+| 🧡 **Swift** | **0.25%** | ![Swift](https://geps.dev/progress/1) |
+| 🔘 **C** | **0.16%** | ![C](https://geps.dev/progress/1) |
 | 🟣 **Kotlin** | **0.02%** | ![Kotlin](https://geps.dev/progress/1) |
 | 🔹 **Objective-C** | **0.00%** | ![Objective-C](https://geps.dev/progress/1) |
 <!-- LANGUAGE_STATS:END -->
@@ -43,7 +43,7 @@
 ## 🏆 Vue d'ensemble du profil GitHub
 
 <!-- PROFILE_OVERVIEW:START -->
-![Projets Publics](https://img.shields.io/badge/Projets_Publics-5_Projets-0175C2?style=for-the-badge&logo=github&logoColor=white) ![Commits](https://img.shields.io/badge/Commits-58_Commits-3DDC84?style=for-the-badge&logo=git&logoColor=white)
+![Projets Publics](https://img.shields.io/badge/Projets_Publics-5_Projets-0175C2?style=for-the-badge&logo=github&logoColor=white) ![Commits](https://img.shields.io/badge/Commits-110_Commits-3DDC84?style=for-the-badge&logo=git&logoColor=white)
 <!-- PROFILE_OVERVIEW:END -->
 
 ![Série de contributions](https://streak-stats.demolab.com?user=Coco921609&theme=tokyonight&hide_border=true)
@@ -57,11 +57,11 @@
 <!-- PROJECTS:START -->
 _Liste générée automatiquement à partir de tes dépôts publics._
 
+- **[france](https://github.com/Coco921609/france)** — Redécouvrez la France, un secret à la fois  
+  - Langage principal : Dart · Dernier push : 2026-11-25
 - **[Egypte](https://github.com/Coco921609/Egypte)** — Voyagez en Égypte en toute sérénité. Égypte est l'application indispensable pour simplifier votre séjour.  
   - Langage principal : Dart · Dernier push : 2026-11-25
 - **[Usa](https://github.com/Coco921609/Usa)** — Découvrez les trésors naturels des États-Unis. De l'Ouest à l'Est, explorez les parcs nationaux et sites les plus spectaculaires d'Amérique.  
-  - Langage principal : Dart · Dernier push : 2026-11-12
-- **[france](https://github.com/Coco921609/france)** — Redécouvrez la France, un secret à la fois  
   - Langage principal : Dart · Dernier push : 2026-11-12
 - **[vera_italia](https://github.com/Coco921609/vera_italia)** — Sortez des circuits classiques. Votre compagnon de route pour débusquer les endroits les plus authentiques et magnifiques de l'Italie méconnue.  
   - Langage principal : Dart · Dernier push : 2026-11-12
