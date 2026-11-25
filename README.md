@@ -23,8 +23,9 @@
 
 ---
 
-## 📊 Statistiques des Langages (Moyenne sur vos 6 projets)
+## 📊 Statistiques des Langages (Moyenne sur vos projets)
 
+<!-- LANGUAGE_STATS:START -->
 | Langage | Part Moyenne (%) | Progression Visuelle |
 | :--- | :---: | :--- |
 | 🩵 **Dart** | **88.57%** | ![Dart](https://geps.dev/progress/88?dangerColor=0175C2&warningColor=0175C2&color=0175C2) |
@@ -34,11 +35,16 @@
 | 🧡 **Swift** | **0.35%**| ![Swift](https://geps.dev/progress/1) |
 | 🔘 **C** | **0.22%** | ![C](https://geps.dev/progress/1) |
 
+<!-- LANGUAGE_STATS:END -->
+
 ---
 
 ## 🏆 Vue d'ensemble du profil GitHub
 
+<!-- PROFILE_OVERVIEW:START -->
 ![Projets Publics](https://img.shields.io/badge/Projets_Publics-6_Projets-0175C2?style=for-the-badge&logo=github&logoColor=white) ![Commits](https://img.shields.io/badge/Commits-50_Commits-3DDC84?style=for-the-badge&logo=git&logoColor=white)
+
+<!-- PROFILE_OVERVIEW:END -->
 
 ![Série de contributions](https://streak-stats.demolab.com?user=Coco921609&theme=tokyonight&hide_border=true)
 
