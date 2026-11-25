@@ -1,4 +1,4 @@
-name: Update profile projects
+name: Update profile projects and statistics
 
 on:
   schedule:
@@ -14,10 +14,10 @@ permissions:
   contents: write
 
 jobs:
-  update-projects:
+  update-profile:
     runs-on: ubuntu-latest
     steps:
-      - name: Update the projects section
+      - name: Refresh projects, language statistics and profile overview
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -25,8 +25,29 @@ jobs:
             const owner = "Coco921609";
             const profileRepo = "Coco921609";
             const readmePath = "README.md";
-            const start = "<!-- PROJECTS:START -->";
-            const end = "<!-- PROJECTS:END -->";
+
+            const markers = {
+              projects: ["<!-- PROJECTS:START -->", "<!-- PROJECTS:END -->"],
+              languages: ["<!-- LANGUAGE_STATS:START -->", "<!-- LANGUAGE_STATS:END -->"],
+              overview: ["<!-- PROFILE_OVERVIEW:START -->", "<!-- PROFILE_OVERVIEW:END -->"]
+            };
+
+            const clean = value => (value || "Non spécifié")
+              .replace(/\r?\n/g, " ")
+              .replace(/\|/g, "\\|")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;");
+
+            const replaceSection = (source, start, end, body) => {
+              const startIndex = source.indexOf(start);
+              const endIndex = source.indexOf(end);
+              if (startIndex < 0 || endIndex < 0 || endIndex < startIndex) {
+                throw new Error(`Marqueurs introuvables : ${start} / ${end}`);
+              }
+              return source.slice(0, startIndex + start.length) +
+                "\n" + body.trim() + "\n" +
+                source.slice(endIndex);
+            };
 
             const repos = await github.paginate(
               github.rest.repos.listForUser,
@@ -37,34 +58,95 @@ jobs:
               .filter(repo => !repo.fork && !repo.archived && repo.name !== profileRepo)
               .sort((a, b) => new Date(b.pushed_at || b.updated_at) - new Date(a.pushed_at || a.updated_at));
 
-            const clean = value => (value || "")
-              .replace(/\r?\n/g, " ")
-              .replace(/\|/g, "\\|")
-              .replace(/</g, "&lt;")
-              .replace(/>/g, "&gt;");
+            const details = await Promise.all(projects.map(async repo => {
+              const [languageResponse, commitResponse] = await Promise.all([
+                github.rest.repos.listLanguages({ owner, repo: repo.name }),
+                github.rest.repos.listCommits({
+                  owner,
+                  repo: repo.name,
+                  sha: repo.default_branch,
+                  per_page: 1
+                })
+              ]);
 
-            const lines = [
-              "",
+              const link = commitResponse.headers.link || "";
+              const lastPage = link.match(/[?&]page=(\d+)>; rel="last"/);
+              const commitCount = commitResponse.data.length === 0
+                ? 0
+                : (lastPage ? Number(lastPage[1]) : commitResponse.data.length);
+
+              return {
+                repo,
+                languages: languageResponse.data || {},
+                commitCount
+              };
+            }));
+
+            // Equal-weight average: each public project contributes its own language percentages.
+            const totals = {};
+            for (const item of details) {
+              const bytes = Object.values(item.languages).reduce((sum, value) => sum + value, 0);
+              if (!bytes) continue;
+              for (const [language, amount] of Object.entries(item.languages)) {
+                totals[language] = (totals[language] || 0) + (amount / bytes) * 100;
+              }
+            }
+
+            const languageRows = Object.entries(totals)
+              .map(([language, sum]) => [language, sum / Math.max(details.length, 1)])
+              .sort((a, b) => b[1] - a[1])
+              .slice(0, 8);
+
+            const languageLines = [
+              "| Langage | Part Moyenne (%) | Progression Visuelle |",
+              "| :--- | :---: | :--- |"
+            ];
+
+            const emoji = {
+              Dart: "🩵", HTML: "🟠", "C++": "🩷", CMake: "🔴",
+              Swift: "🧡", C: "🔘", JavaScript: "💛", Kotlin: "🟣",
+              TypeScript: "🔷", Java: "☕", Python: "🐍", CSS: "🎨"
+            };
+
+            for (const [language, average] of languageRows) {
+              const percent = average.toFixed(2);
+              const progress = Math.max(1, Math.min(100, Math.round(average)));
+              const label = clean(language);
+              const icon = emoji[language] || "🔹";
+              languageLines.push(
+                `| ${icon} **${label}** | **${percent}%** | ![${label}](https://geps.dev/progress/${progress}) |`
+              );
+            }
+
+            if (languageRows.length === 0) {
+              languageLines.push("| Aucune donnée | 0.00% | — |");
+            }
+
+            const projectLines = [
               "_Liste générée automatiquement à partir de tes dépôts publics._",
               ""
             ];
 
-            if (projects.length === 0) {
-              lines.push("_Aucun projet public à afficher pour le moment._");
+            if (details.length === 0) {
+              projectLines.push("_Aucun projet public à afficher pour le moment._");
             } else {
-              for (const repo of projects) {
-                const description = clean(repo.description) || "Aucune description disponible.";
-                const language = clean(repo.language) || "Non spécifié";
+              for (const item of details) {
+                const repo = item.repo;
+                const description = clean(repo.description || "Aucune description disponible.");
+                const language = clean(repo.language || "Non spécifié");
                 const updated = repo.pushed_at
                   ? new Date(repo.pushed_at).toISOString().slice(0, 10)
                   : "Date indisponible";
-                lines.push(`- **[${clean(repo.name)}](${repo.html_url})** — ${description}  `);
-                lines.push(`  - Langage principal : ${language} · Dernier push : ${updated}`);
+                projectLines.push(`- **[${clean(repo.name)}](${repo.html_url})** — ${description}  `);
+                projectLines.push(`  - Langage principal : ${language} · Dernier push : ${updated}`);
               }
             }
 
-            lines.push("");
-            const generated = `\n${start}${lines.join("\n")}\n${end}\n`;
+            const projectCount = details.length;
+            const commitCount = details.reduce((sum, item) => sum + item.commitCount, 0);
+            const overview = [
+              `![Projets Publics](https://img.shields.io/badge/Projets_Publics-${projectCount}_Projets-0175C2?style=for-the-badge&logo=github&logoColor=white) ![Commits](https://img.shields.io/badge/Commits-${commitCount}_Commits-3DDC84?style=for-the-badge&logo=git&logoColor=white)`
+            ].join("\n");
 
             const file = await github.rest.repos.getContent({
               owner,
@@ -73,23 +155,16 @@ jobs:
             });
 
             if (!file.data || Array.isArray(file.data) || !file.data.content) {
-              throw new Error("Impossible de lire le README du profil.");
+              throw new Error("Impossible de lire README.md.");
             }
 
-            const current = Buffer.from(file.data.content, "base64").toString("utf8");
-            const markerPattern = new RegExp(
-              start.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") +
-              "[\\s\\S]*?" +
-              end.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
-            );
+            let readme = Buffer.from(file.data.content, "base64").toString("utf8");
+            readme = replaceSection(readme, ...markers.projects, projectLines.join("\n"));
+            readme = replaceSection(readme, ...markers.languages, languageLines.join("\n"));
+            readme = replaceSection(readme, ...markers.overview, overview);
 
-            if (!markerPattern.test(current)) {
-              throw new Error("Les marqueurs PROJECTS:START/END sont introuvables dans README.md.");
-            }
-
-            const updatedReadme = current.replace(markerPattern, generated.trimEnd());
-            if (updatedReadme === current) {
-              core.info("La section des projets est déjà à jour.");
+            if (readme === Buffer.from(file.data.content, "base64").toString("utf8")) {
+              core.info("Le README est déjà à jour.");
               return;
             }
 
@@ -97,9 +172,9 @@ jobs:
               owner,
               repo: profileRepo,
               path: readmePath,
-              message: "chore: automatically update public projects section",
+              message: "chore: refresh profile projects and statistics",
               sha: file.data.sha,
-              content: Buffer.from(updatedReadme, "utf8").toString("base64")
+              content: Buffer.from(readme, "utf8").toString("base64")
             });
 
-            core.info(`Section des projets mise à jour : ${projects.length} dépôt(s) public(s).`);
+            core.info(`Profil actualisé : ${projectCount} projets publics, ${commitCount} commits sur leurs branches principales.`);
