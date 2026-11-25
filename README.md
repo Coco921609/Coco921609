@@ -28,13 +28,14 @@
 <!-- LANGUAGE_STATS:START -->
 | Langage | Part Moyenne (%) | Progression Visuelle |
 | :--- | :---: | :--- |
-| 🩵 **Dart** | **88.57%** | ![Dart](https://geps.dev/progress/88?dangerColor=0175C2&warningColor=0175C2&color=0175C2) |
-| 🟠 **HTML** | **4.38%** | ![HTML](https://geps.dev/progress/4) |
-| 🩷 **C++** | **3.65%** | ![C++](https://geps.dev/progress/4) |
-| 🔴 **CMake** | **2.83%**| ![CMake](https://geps.dev/progress/3) |
-| 🧡 **Swift** | **0.35%**| ![Swift](https://geps.dev/progress/1) |
-| 🔘 **C** | **0.22%** | ![C](https://geps.dev/progress/1) |
-
+| 🩵 **Dart** | **89.09%** | ![Dart](https://geps.dev/progress/89) |
+| 🟠 **HTML** | **4.57%** | ![HTML](https://geps.dev/progress/5) |
+| 🩷 **C++** | **3.27%** | ![C++](https://geps.dev/progress/3) |
+| 🔴 **CMake** | **2.56%** | ![CMake](https://geps.dev/progress/3) |
+| 🧡 **Swift** | **0.30%** | ![Swift](https://geps.dev/progress/1) |
+| 🔘 **C** | **0.19%** | ![C](https://geps.dev/progress/1) |
+| 🟣 **Kotlin** | **0.02%** | ![Kotlin](https://geps.dev/progress/1) |
+| 🔹 **Objective-C** | **0.00%** | ![Objective-C](https://geps.dev/progress/1) |
 <!-- LANGUAGE_STATS:END -->
 
 ---
@@ -42,8 +43,7 @@
 ## 🏆 Vue d'ensemble du profil GitHub
 
 <!-- PROFILE_OVERVIEW:START -->
-![Projets Publics](https://img.shields.io/badge/Projets_Publics-6_Projets-0175C2?style=for-the-badge&logo=github&logoColor=white) ![Commits](https://img.shields.io/badge/Commits-50_Commits-3DDC84?style=for-the-badge&logo=git&logoColor=white)
-
+![Projets Publics](https://img.shields.io/badge/Projets_Publics-5_Projets-0175C2?style=for-the-badge&logo=github&logoColor=white) ![Commits](https://img.shields.io/badge/Commits-58_Commits-3DDC84?style=for-the-badge&logo=git&logoColor=white)
 <!-- PROFILE_OVERVIEW:END -->
 
 ![Série de contributions](https://streak-stats.demolab.com?user=Coco921609&theme=tokyonight&hide_border=true)
@@ -67,5 +67,4 @@ _Liste générée automatiquement à partir de tes dépôts publics._
   - Langage principal : Dart · Dernier push : 2026-11-12
 - **[Belgique](https://github.com/Coco921609/Belgique)** — La Belgique est une destination de voyage idéale, riche en diversité malgré sa petite taille.  
   - Langage principal : Dart · Dernier push : 2026-11-09
-
 <!-- PROJECTS:END -->
