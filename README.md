@@ -46,6 +46,19 @@
 
 ## 📌 Mes Projets
 
+
 <!-- PROJECTS:START -->
-_Cette section se remplit automatiquement._
+_Liste générée automatiquement à partir de tes dépôts publics._
+
+- **[Egypte](https://github.com/Coco921609/Egypte)** — Voyagez en Égypte en toute sérénité. Égypte est l'application indispensable pour simplifier votre séjour.  
+  - Langage principal : Dart · Dernier push : 2026-11-25
+- **[Usa](https://github.com/Coco921609/Usa)** — Découvrez les trésors naturels des États-Unis. De l'Ouest à l'Est, explorez les parcs nationaux et sites les plus spectaculaires d'Amérique.  
+  - Langage principal : Dart · Dernier push : 2026-11-12
+- **[france](https://github.com/Coco921609/france)** — Redécouvrez la France, un secret à la fois  
+  - Langage principal : Dart · Dernier push : 2026-11-12
+- **[vera_italia](https://github.com/Coco921609/vera_italia)** — Sortez des circuits classiques. Votre compagnon de route pour débusquer les endroits les plus authentiques et magnifiques de l'Italie méconnue.  
+  - Langage principal : Dart · Dernier push : 2026-11-12
+- **[Belgique](https://github.com/Coco921609/Belgique)** — La Belgique est une destination de voyage idéale, riche en diversité malgré sa petite taille.  
+  - Langage principal : Dart · Dernier push : 2026-11-09
+
 <!-- PROJECTS:END -->
