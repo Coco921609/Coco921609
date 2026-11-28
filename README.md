@@ -28,12 +28,12 @@
 <!-- LANGUAGE_STATS:START -->
 | Langage | Part Moyenne (%) | Progression Visuelle |
 | :--- | :---: | :--- |
-| 🩵 **Dart** | **90.53%** | ![Dart](https://geps.dev/progress/91) |
-| 🟠 **HTML** | **4.51%** | ![HTML](https://geps.dev/progress/5) |
-| 🩷 **C++** | **2.55%** | ![C++](https://geps.dev/progress/3) |
-| 🔴 **CMake** | **1.99%** | ![CMake](https://geps.dev/progress/2) |
-| 🧡 **Swift** | **0.24%** | ![Swift](https://geps.dev/progress/1) |
-| 🔘 **C** | **0.15%** | ![C](https://geps.dev/progress/1) |
+| 🩵 **Dart** | **89.76%** | ![Dart](https://geps.dev/progress/90) |
+| 🟠 **HTML** | **3.83%** | ![HTML](https://geps.dev/progress/4) |
+| 🩷 **C++** | **3.31%** | ![C++](https://geps.dev/progress/3) |
+| 🔴 **CMake** | **2.56%** | ![CMake](https://geps.dev/progress/3) |
+| 🧡 **Swift** | **0.32%** | ![Swift](https://geps.dev/progress/1) |
+| 🔘 **C** | **0.19%** | ![C](https://geps.dev/progress/1) |
 | 🟣 **Kotlin** | **0.02%** | ![Kotlin](https://geps.dev/progress/1) |
 | 🔹 **Objective-C** | **0.00%** | ![Objective-C](https://geps.dev/progress/1) |
 <!-- LANGUAGE_STATS:END -->
@@ -43,7 +43,7 @@
 ## 🏆 Vue d'ensemble du profil GitHub
 
 <!-- PROFILE_OVERVIEW:START -->
-![Projets Publics](https://img.shields.io/badge/Projets_Publics-5_Projets-0175C2?style=for-the-badge&logo=github&logoColor=white) ![Commits](https://img.shields.io/badge/Commits-161_Commits-3DDC84?style=for-the-badge&logo=git&logoColor=white)
+![Projets Publics](https://img.shields.io/badge/Projets_Publics-6_Projets-0175C2?style=for-the-badge&logo=github&logoColor=white) ![Commits](https://img.shields.io/badge/Commits-168_Commits-3DDC84?style=for-the-badge&logo=git&logoColor=white)
 <!-- PROFILE_OVERVIEW:END -->
 
 ![Série de contributions](https://streak-stats.demolab.com?user=Coco921609&theme=tokyonight&hide_border=true)
@@ -67,4 +67,6 @@ _Liste générée automatiquement à partir de tes dépôts publics._
   - Langage principal : Dart · Dernier push : 2026-11-26
 - **[vera_italia](https://github.com/Coco921609/vera_italia)** — Sortez des circuits classiques. Votre compagnon de route pour débusquer les endroits les plus authentiques et magnifiques de l'Italie méconnue.  
   - Langage principal : Dart · Dernier push : 2026-11-26
+- **[pr-servant](https://github.com/Coco921609/pr-servant)** — application de gestion et d’interaction de la formation des serviteurs.  
+  - Langage principal : Dart · Dernier push : 2026-11-19
 <!-- PROJECTS:END -->
